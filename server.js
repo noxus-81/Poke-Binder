@@ -46,8 +46,10 @@ initDB().then(() => {
     res.status(500).json({ error: 'Une erreur interne est survenue.' });
   });
 
-  app.listen(PORT, () => {
-    console.log(`🎮 Poké Binder running → http://localhost:${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🎮 Poké Binder en ligne !`);
+    console.log(`💻 Sur ton PC :       http://localhost:${PORT}`);
+    console.log(`📱 Sur ton téléphone : http://192.168.1.94:${PORT}`);
 
     // Mise à jour automatique des prix et cartes toutes les 24h (86400000 ms)
     const { updateCollectionPrices } = require('./scripts/update-prices');
