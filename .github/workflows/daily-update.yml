@@ -1,0 +1,26 @@
+name: Mise à jour quotidienne des Prix Poké Binder
+
+on:
+  schedule:
+    # Tourne automatiquement chaque nuit à 03h00 UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Permet de déclencher la mise à jour manuellement en un clic sur GitHub
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Actualisation des prix et du catalogue
+        run: node scripts/update-prices.js

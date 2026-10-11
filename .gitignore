@@ -1,0 +1,26 @@
+# Clés API et secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Dépendances Node
+node_modules/
+
+# Fichiers temporaires et uploads
+uploads/temp/*
+!uploads/temp/.gitkeep
+
+# Base de données locale (comptes et classeurs de test)
+db/*.db
+db/*.sqlite
+db/*.sqlite3
+!db/.gitkeep
+
+# Fichiers logs et système
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
